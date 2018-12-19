@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<canvas id="abc" width="500" height="500"></canvas>
+<script src="Wt.js"></script>
+<script src="Cj.js"></script>
+<script src="Jl.js"></script>
+<script src="Wj.js"></script>
+<script src="WjZd.js"></script>
+<script>
+//使用以上的类
+var jl1=new Jl(10,10,30,30);
+var jl2=new Jl(300,20,36,36);
+var wj1=new Wj(100,100,36,36);
+wj1.s=5;
+jl2.s=2;
+
+var cj1=new Cj();
+cj1.add(jl1);
+cj1.add(jl2);
+cj1.add(wj1);
+
+var can=document.getElementById("abc");
+var wt1=new Wt(can);
+wt1.replace(cj1);
+
+
+window.onkeydown=function(e)
+{
+   if (e.keyCode==38) wj1.moveTop();
+   if (e.keyCode==40) wj1.moveDown();
+   if (e.keyCode==37) wj1.moveLeft();
+   if (e.keyCode==39) wj1.moveRight();
+   if (e.keyCode==32) wj1.fire();
+};
+window.onkeyup=function(e)
+{
+   if (e.keyCode==38) wj1.stopMoveTop();
+   if (e.keyCode==40) wj1.stopMoveDown();
+   if (e.keyCode==37) wj1.stopMoveLeft();
+   if (e.keyCode==39) wj1.stopMoveRight();
+   if (e.keyCode==32) wj1.stopFire();
+};
+</script>
+
+
+
+</body>
+</html>
